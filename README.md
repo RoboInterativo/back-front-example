@@ -1,3 +1,17 @@
+front
+=========
+Должен быть установление nodejs
+
+Перейти в папку front2
+
+```bash
+npm install
+npm run build
+```
+В папке dist будет файл main.js
+
+Копируем его в папку back2/static
+
 back_end
 ==========
 
