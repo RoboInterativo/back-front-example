@@ -3,7 +3,7 @@ from aiohttp import web
 import aiohttp_jinja2
 import jinja2
 import pathlib
-
+import logging
 @aiohttp_jinja2.template('index.html')
 async def handle(request):
     name = request.match_info.get('name', "Anonymous")
@@ -67,7 +67,7 @@ async def users(request):
 #     return ws
 PROJECT_ROOT = pathlib.Path(__file__).parent
 
-async def my_web_app():
+async def init_app():
   app = web.Application()
   aiohttp_jinja2.setup(
       app,   loader=jinja2.FileSystemLoader('templates'))
@@ -83,5 +83,9 @@ async def my_web_app():
                       name='static')
   return app
 
-#if __name__ == '__main__':
-#    web.run_app(app)
+
+
+if __name__ == '__main__':
+
+     app = init_app()
+     web.run_app(app)
